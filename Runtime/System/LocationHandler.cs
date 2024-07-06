@@ -107,10 +107,10 @@ namespace com.Klazapp.Utility
             #endregion
         }
 
- 		public static bool IsUserWithinRadius(decimal2 userLocation, decimal2 targetLocation, decimal radiusMeters)
+	    public static (bool userWithinRadius, float userDistanceToTarget) IsUserWithinRadius(decimal2 userLocation, decimal2 targetLocation, decimal radiusMeters)
         {
             decimal distance = (decimal)HaversineDistance(userLocation, targetLocation);
-            return distance <= radiusMeters;
+            return (distance <= radiusMeters, (float)distance);
         }
         #endregion
         
