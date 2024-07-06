@@ -1,0 +1,17 @@
+{
+    "name": "klazapp.location.handler.runtime",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Mathematics",
+        "com.klazapp.mathematicsextension.runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

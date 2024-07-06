@@ -1,0 +1,25 @@
+{
+  "name": "com.klazapp.locationhandler",
+  "displayName": "Unity Location Handler Private",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "description": "Enhance your Unity projects with Klazapp's Location Handler, a utility designed to handle real time location functions",
+  "keywords": [
+    "config",
+    "file",
+    "data"
+  ],
+  "category": "Utility",
+  "dependencies": {
+    "com.unity.mathematics": "1.2.6",
+    "com.klazapp.mathematics": "1.0.0"
+  },
+  "author": {
+      "name": "Klazapp",
+      "email": "klazapp@klazapp.com",
+      "url": "https://www.klazapp.com"
+    },
+    "documentationUrl": "https://github.com/klazapp/Unity-Location-Handler-Private",
+    "changelogUrl": "https://github.com/klazapp/Unity-Location-Handler-Private",
+    "licensesUrl": "https://github.com/klazapp/Unity-Location-Handler-Private"
+}
