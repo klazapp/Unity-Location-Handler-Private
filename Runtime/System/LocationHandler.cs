@@ -103,35 +103,45 @@ namespace com.Klazapp.Utility
             return (closestIndex, closestLocation, closestDistance);
             
             #region Local Functions
-            static double HaversineDistance(decimal2 latLon1, decimal2 latLon2)
-            {
-                var lat1 = (double)latLon1.x;
-                var lon1 = (double)latLon1.y;
-                var lat2 = (double)latLon2.x;
-                var lon2 = (double)latLon2.y;
-                    
-                const double R = 6371; 
-                var dLat = ToRadians(lat2 - lat1);
-                var dLon = ToRadians(lon2 - lon1);
-                var lat1Rad = ToRadians(lat1);
-                var lat2Rad = ToRadians(lat2);
-
-                var a = math.sin(dLat / 2) * math.sin(dLat / 2) +
-                        math.cos(lat1Rad) * math.cos(lat2Rad) *
-                        math.sin(dLon / 2) * math.sin(dLon / 2);
-                var c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
-                return R * c;
-            }
-
-            static double ToRadians(double degrees)
-            {
-                return degrees * math.PI / 180;
-            }
+           
             #endregion
-        }   
+        }
+
+ 		public static bool IsUserWithinRadius(decimal2 userLocation, decimal2 targetLocation, decimal radiusMeters)
+        {
+            decimal distance = (decimal)HaversineDistance(userLocation, targetLocation);
+            return distance <= radiusMeters;
+        }
         #endregion
         
         #region Modules
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static double HaversineDistance(decimal2 latLon1, decimal2 latLon2)
+        {
+            var lat1 = (double)latLon1.x;
+            var lon1 = (double)latLon1.y;
+            var lat2 = (double)latLon2.x;
+            var lon2 = (double)latLon2.y;
+                    
+            const double R = 6371000.0; 
+            var dLat = ToRadians(lat2 - lat1);
+            var dLon = ToRadians(lon2 - lon1);
+            var lat1Rad = ToRadians(lat1);
+            var lat2Rad = ToRadians(lat2);
+
+            var a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+                    math.cos(lat1Rad) * math.cos(lat2Rad) *
+                    math.sin(dLon / 2) * math.sin(dLon / 2);
+            var c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+            return R * c;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static double ToRadians(double degrees)
+        {
+            return degrees * math.PI / 180;
+        }
+        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected void StoreUserLastLocationInfo(float latitude, float longitude, float altitude, float horizontalAccuracy)
         {
