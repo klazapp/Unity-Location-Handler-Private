@@ -6,7 +6,7 @@ using decimal2 = com.Klazapp.Utility.mathExtension.decimal2;
 
 namespace com.Klazapp.Utility
 {
-    public class LocationHandler : MonoBehaviour
+    public abstract class LocationHandler : MonoBehaviour
     {
         #region Variables
         [SerializeField]
@@ -141,18 +141,19 @@ namespace com.Klazapp.Utility
             return degrees * math.PI / 180;
         }
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    	protected void StoreUserLastLocationInfo(float latitude, float longitude, float altitude, float horizontalAccuracy)
-        {
-            //Store user's last location
-            locationHandlerTemplate.SetUserLastLocation(new decimal2((decimal)latitude, (decimal)longitude));
-            
-            //Store user's last altitude
-            locationHandlerTemplate.SetUserLastAltitude(altitude);
-            
-            //Store user's last horizontal accuracy
-            locationHandlerTemplate.SetUserLastHorizontalAccuracy(horizontalAccuracy);
-        }
+ 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected abstract void StoreUserLastLocationInfo(float latitude, float longitude, float altitude,
+                                                          float horizontalAccuracy);
+        // {
+        //     //Store user's last location
+        //     locationHandlerTemplate.SetUserLastLocation(new decimal2((decimal)latitude, (decimal)longitude));
+        //     
+        //     //Store user's last altitude
+        //     locationHandlerTemplate.SetUserLastAltitude(altitude);
+        //     
+        //     //Store user's last horizontal accuracy
+        //     locationHandlerTemplate.SetUserLastHorizontalAccuracy(horizontalAccuracy);
+        // }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void SetScriptBehaviour(ScriptBehavior behavior)
