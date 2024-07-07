@@ -14,9 +14,8 @@ namespace com.Klazapp.Utility
         private ScriptBehavior scriptBehavior = ScriptBehavior.None;
         public static LocationHandler Instance { get; private set; }
         
-        protected decimal2 userLastLocation;
-        protected float userLastAltitude;
-        protected float userLastHorizontalAccuracy;
+ 	[Header("Location Handler Template")]
+        public LocationHandlerTemplate locationHandlerTemplate;
         #endregion
         
         #region Lifecycle Flow
@@ -143,16 +142,16 @@ namespace com.Klazapp.Utility
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected void StoreUserLastLocationInfo(float latitude, float longitude, float altitude, float horizontalAccuracy)
+    	protected void StoreUserLastLocationInfo(float latitude, float longitude, float altitude, float horizontalAccuracy)
         {
             //Store user's last location
-            userLastLocation = new decimal2((decimal)latitude, (decimal)longitude);
+            locationHandlerTemplate.SetUserLastLocation(new decimal2((decimal)latitude, (decimal)longitude));
             
             //Store user's last altitude
-            userLastAltitude = altitude;
+            locationHandlerTemplate.SetUserLastAltitude(altitude);
             
             //Store user's last horizontal accuracy
-            userLastHorizontalAccuracy = horizontalAccuracy;
+            locationHandlerTemplate.SetUserLastHorizontalAccuracy(horizontalAccuracy);
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
