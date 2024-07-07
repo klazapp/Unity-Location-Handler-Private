@@ -13,9 +13,6 @@ namespace com.Klazapp.Utility
         [Tooltip("Toggle this to set script's singleton status. Status will be set on script's OnAwake function")]
         private ScriptBehavior scriptBehavior = ScriptBehavior.None;
         public static LocationHandler Instance { get; private set; }
-        
- 	[Header("Location Handler Template")]
-        public LocationHandlerTemplate locationHandlerTemplate;
         #endregion
         
         #region Lifecycle Flow
