@@ -3,7 +3,7 @@ using com.Klazapp.Utility;
 using UnityEngine;
 using decimal2 = com.Klazapp.Utility.mathExtension.decimal2; 
 
-namespace com.NavigationApp.IndoorMap.Institution
+namespace com.Klazapp.Utility
 {
     [CreateAssetMenu(fileName = "Location Handler Template", menuName = "Templates/Location/Location Handler Template", order = 1)]
     public class LocationHandlerTemplate : ScriptableObject
